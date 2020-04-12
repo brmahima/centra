@@ -1,24 +1,24 @@
 sequelize = require('../database/sequelize')
 const Sequelize = require('sequelize')
 module.exports = sequelize.define('result', {
-ResultId:{
-    field:'result_id',
+resultId:{
+    field:'resultId',
     type: Sequelize.INTEGER,
     autoIncrement:true,
     primaryKey:true
 
 },
-ShortResult:{
-    field:'short_result',
+shortResult:{
+    field:'shortResult',
     type:Sequelize.STRING,
     defaultValue:""
 },
-Equation:{
+equation:{
     field:'equation',
     type:Sequelize.STRING
 },
-PDFName:{
-    field:'pdf_name',
+pdfName:{
+    field:'pdfName',
     type:Sequelize.STRING
 },
 

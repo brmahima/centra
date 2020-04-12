@@ -1,31 +1,36 @@
 sequelize = require('../database/sequelize')
 const Sequelize = require('sequelize')
 module.exports = sequelize.define('user', {
-UserId:{
-    field:'user_id',
+userId:{
+    field:'userId',
     type: Sequelize.INTEGER,
     autoIncrement:true,
     primaryKey:true
 
 },
-Name:{
-    field:'name',
+fristName:{
+    field:'firstname',
+    type:Sequelize.STRING, 
+    defaultValue:""
+},
+lastName:{
+    field:'lastname',
     type:Sequelize.STRING,
     defaultValue:""
 },
-Phone:{
+phone:{
     field:'phone',
     type:Sequelize.STRING
 },
 
-Password:{
+password:{
     field:'password',
     type:Sequelize.INTEGER
 },
 
-UserType:{
-    field:'user_type',
-    type:Sequelize.INTEGER
+isAdmin:{
+    field:'isAdmin',
+    type:Sequelize.BOOLEAN
 },
 createdAt:{
     field:'createdAt',

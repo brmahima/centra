@@ -1,40 +1,32 @@
 sequelize = require('../database/sequelize')
 const Sequelize = require('sequelize')
 module.exports = sequelize.define('post', {
-PostId:{
-    field:'post_id',
+postId:{
+    field:'postId',
     type: Sequelize.INTEGER,
     autoIncrement:true,
     primaryKey:true
 
 },
-PostDetials:{
+postDetials:{
     field:'detials',
     type:Sequelize.STRING,
     defaultValue:""
 },
-Image:{
+image:{
     field:'image',
     type:Sequelize.STRING
 },
-Likes:{
-    type:Sequelize.INTEGER
-},
-
-Dislikes:{
-    field:'dislikes',
-    type:Sequelize.INTEGER
-},
-Date:{
+date:{
     field:'date',
     type:Sequelize.DATE
 },
-Time:{
+time:{
     field:'time',
     type:Sequelize.STRING
 },
-UserId:{
-    field:'user_id',
+userId:{
+    field:'userId',
     type:Sequelize.INTEGER,
     foreignKey:true
 },

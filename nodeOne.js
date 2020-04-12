@@ -76,11 +76,14 @@ app.post('/api/user',upload.none(),(req,res)=>{
             }
         }).then((result)=>{
             if(!result){
+                let privateKey = fs.readFileSync('./private.pem', 'utf8');
+                let token = jwt.sign({ "body": req.body.phone }, privateKey, { algorithm: 'HS256'})
                 User.create({
-                    Name: req.body.Name,
-                    Phone: req.body.Phone,
+                    fistName: req.body.fistName,
+                    lastName:req.body.lastName,
+                    Phone: req.body.phone,
                     Password: hash,
-                    UserType: req.body.UserType
+                    IsAdmin: false
             
                 }).then((user) => {
             
@@ -136,13 +139,13 @@ app.get('/api/login',upload.none(),(req,res)=>{
     }).then((user)=>{
         if(user){
             let privateKey = fs.readFileSync('./private.pem', 'utf8');
-            let token = jwt.sign({ "body": req.body.Phone }, privateKey, { algorithm: 'HS256'});
+            let token = jwt.sign({ "user": user}, privateKey, { algorithm: 'HS256'});
             bcrypt.compare(req.body.Password, user.Password, function(err, result) {
                 if(result){
                     user.Password = ""
                     res.json({
                         'query': 1,
-                        'user':user,
+                    
                         'token':token
                     })
                 }
@@ -347,6 +350,7 @@ app.get('/api/download',upload.none(),(req,res)=>{
                 let privateKey = fs.readFileSync('./private.pem', 'utf8');
             
                 jwt.verify(token, privateKey, { algorithm: "HS256" }, (err, user) => {
+                    console.log(user)
                     
                 
                     if (err) {  

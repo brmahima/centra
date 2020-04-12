@@ -1,27 +1,27 @@
 sequelize = require('../database/sequelize')
 const Sequelize = require('sequelize')
 module.exports = sequelize.define('catogry', {
-CatogryId:{
-    field:'catogry_id',
+catogryId:{
+    field:'catogryId',
     type: Sequelize.INTEGER,
     autoIncrement:true,
     primaryKey:true
 
 },
-Name:{
+name:{
     field:'name',
     type:Sequelize.STRING,
     defaultValue:""
 },
-Sample:{
+sample:{
     field:'sample',
     type:Sequelize.STRING
 },
-Desc:{
+desc:{
     type:Sequelize.STRING
 },
 
-Image:{
+image:{
     type:Sequelize.STRING
 },
 

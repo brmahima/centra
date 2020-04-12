@@ -1,23 +1,23 @@
 sequelize = require('../database/sequelize')
 const Sequelize = require('sequelize')
 module.exports = sequelize.define('space', {
-SpaceId:{
-    field:'space_id',
+spaceId:{
+    field:'spaceId',
     type: Sequelize.INTEGER,
     autoIncrement:true,
     primaryKey:true
 
 },
-Name:{
+name:{
     field:'name',
     type:Sequelize.STRING,
     defaultValue:""
 },
-F_id:{
-    field:'f_id',
+sample:{
+
     type:Sequelize.INTEGER
 },
-Inside:{
+inside:{
     type:Sequelize.STRING
 },
 
